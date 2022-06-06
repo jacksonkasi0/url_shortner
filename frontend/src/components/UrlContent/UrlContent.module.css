@@ -1,0 +1,22 @@
+.container {
+  margin: 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+  background-color: #fff;
+}
+
+.input,
+.options div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 0.5rem;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+}

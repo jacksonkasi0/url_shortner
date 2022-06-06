@@ -1,0 +1,8 @@
+.button{
+    width: fit-content;
+    height: 2.5rem;
+    background-color: #000 !important;
+    color: white !important;
+    font-weight: 500;
+    font-family: "Rubrik" !important;
+}

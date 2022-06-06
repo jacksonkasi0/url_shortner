@@ -1,0 +1,41 @@
+.container {
+  padding: 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.header .logo {
+  width: 200px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.body p {
+  font-family: 'Rubrik';
+  color: gray;
+}
+.body p > a {
+  text-decoration: none;
+  color: #1d90f5;
+}
+
+.button {
+  margin-top: 1rem;
+}
+
+.bgImg {
+  position: absolute;
+  right: -8rem;
+  bottom: 1rem;
+}
+
+.bgImg > img {
+  width: 80%;
+}

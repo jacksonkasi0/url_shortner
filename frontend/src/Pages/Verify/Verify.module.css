@@ -1,0 +1,37 @@
+.container{
+    padding: 2rem 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        padding: 2rem 2rem;
+    }
+}
+
+.content{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 18rem;
+}
+
+.bottom > p{
+    font-size: 1.2rem;
+    color: black;
+}
+
+.bottom >p > a{
+    color: #00a8ff;
+    /* text-decoration: none; */
+
+}

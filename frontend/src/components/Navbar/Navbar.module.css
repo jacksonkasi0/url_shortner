@@ -1,0 +1,37 @@
+.container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	width: 100%;
+	height: 4rem;
+	background: #fff;
+	border-bottom: 2px solid #cacacaaf;
+}
+
+.input{
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	grid-gap: .5rem;
+}
+
+.user{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: .5rem;
+	margin-right: 1rem;
+}
+
+.user i{
+	font-size: 20px;
+	color: #000;
+}
+
+.container input{
+	height: 2.5rem;
+	border-radius: 10px;
+}

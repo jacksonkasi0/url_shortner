@@ -1,0 +1,6 @@
+.card{
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	grid-gap: .5rem;
+}

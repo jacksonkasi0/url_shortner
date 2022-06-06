@@ -1,0 +1,31 @@
+.contect{
+	display: flex;
+	grid-gap: 1.5rem;
+	align-items: center !important;
+	align-content: center;
+	padding: 1rem 1.5rem;
+	cursor: pointer;
+	position: relative;
+}
+
+p{
+	margin: 0 !important;
+}
+
+.light{
+	position: absolute;
+	width: 10px;
+	height: 90%;
+	left: 0;
+	border-radius: 0 15px 15px 0;
+	background: rgb(18,165,247);
+	background: -moz-linear-gradient(0deg, rgba(18,165,247,1) 0%, rgba(9,113,237,1) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(18,165,247,1) 0%, rgba(9,113,237,1) 100%);
+	background: linear-gradient(0deg, rgba(18,165,247,1) 0%, rgba(9,113,237,1) 100%);
+}
+
+
+.contect:hover{
+	transition-duration: .3s;
+	background: linear-gradient(90deg, rgba(230, 230, 230, 0.705) 0%, rgba(68, 68, 68, 0.336) 100%); 
+}

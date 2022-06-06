@@ -1,0 +1,11 @@
+.container{
+	height: 100vh;
+	display: flex;
+	width: 100%;
+	background-color: #fff;
+}
+
+
+.main{
+	width: 100%;
+}
