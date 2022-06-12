@@ -1,5 +1,19 @@
 const mongoose = require("mongoose");
 
+const valueSchema = mongoose.Schema({
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  clicks: {
+    type: Number,
+    default: 0,
+  },
+  browser: [{ type: String }],
+  os: [{ type: String }],
+  location: [{ type: String }],
+});
+
 const URLSchema = mongoose.Schema(
   {
     name: {
@@ -22,6 +36,7 @@ const URLSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    values: [valueSchema],
     creator: {
       type: mongoose.Types.ObjectId,
       ref: "users",

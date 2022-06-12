@@ -25,7 +25,13 @@ const userSchema = new mongoose.Schema(
     shortedUrls: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "Urls",
+        ref: "urls",
+      },
+    ],
+    savedUrls: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "urls",
       },
     ],
   },

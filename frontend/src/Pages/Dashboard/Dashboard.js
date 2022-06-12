@@ -6,27 +6,28 @@ import { UilLink, UilPen } from "@iconscout/react-unicons";
 
 import { useMutation } from "@apollo/client";
 import { useSnackbar } from "notistack";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { QUERY_SHORT_URL } from "../../graphql";
+import { QUERY_SHORT_URL, QUERY_URL_DETAILS } from "../../graphql";
 
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import AccordionBox from "../../components/AccordionBox/AccordionBox";
 import UrlContent from "../../components/UrlContent/UrlContent";
+import { addUrls } from "../../store/action/appFuntions";
 
 const Dashboard = () => {
   const { enqueueSnackbar } = useSnackbar();
 
+  const dispatch = useDispatch();
   const { _id } = useSelector((state) => state.auth.user);
+  const { currentUrls } = useSelector((state) => state.app);
 
   const [inputValue, setInputValue] = useState({
     name: "",
     longUrl: "",
   });
 
-  const [urlList, setUrlList] = useState([]);
-  console.log(urlList);
   const [shotUrl] = useMutation(QUERY_SHORT_URL);
 
   const handleChange = (event) => {
@@ -50,14 +51,18 @@ const Dashboard = () => {
           autoHideDuration: 1500,
         });
         if (shortUrl.success) {
-          const isMatch = urlList.some(
+          console.log(shortUrl);
+          const isMatch = currentUrls.some(
             (url) => url.urlCode === urlDetails.urlCode
           );
           if (!isMatch) {
-            setUrlList([...urlList, urlDetails]);
+            dispatch(addUrls(urlDetails));
           }
         }
       },
+      refetchQueries: [
+        { query: QUERY_URL_DETAILS, variables: { userId: _id } },
+      ],
     });
   };
 
@@ -87,12 +92,11 @@ const Dashboard = () => {
         </div>
       </Box>
       <br />
-      {urlList.map((url) => (
+      {currentUrls.map((url) => (
         <AccordionBox
           key={url.urlCode}
-          Title1={<img src={url.webIcon} style={{ width: "50px" }} />}
+          Title1={<img src={url.webIcon} style={{ width: "45px"}} />}
           Title2={<h3>{url.name || "NaN"}</h3>}
-          Title3={<h3>Clicks = {url.clicks}</h3>}
           Content={<UrlContent urlLink={url.shortUrl} />}
         />
       ))}

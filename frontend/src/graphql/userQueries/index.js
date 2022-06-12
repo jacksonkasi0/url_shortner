@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const QUERY_VERIFY_TOKEN = gql`
   mutation VerifyUserToken($token: String!) {
@@ -7,22 +7,22 @@ export const QUERY_VERIFY_TOKEN = gql`
       success
     }
   }
-`
+`;
 
 export const QUERY_GET_USERS = gql`
-  query GetUser ($token: String!){
+  query GetUser($token: String!) {
     getUser(token: $token) {
-      msg,
-      success,
+      msg
+      success
       user {
-        _id,
-        firstname,
-        lastname,
-        email,      
+        _id
+        firstname
+        lastname
+        email
       }
     }
   }
-`
+`;
 
 export const QUERY_SIGN_UP = gql`
   mutation SignUp($input: CreateUserInput!) {
@@ -31,10 +31,10 @@ export const QUERY_SIGN_UP = gql`
       success
     }
   }
-`
+`;
 
 export const QUERY_LOGIN = gql`
-  mutation LoginUser($input: LoginUserInput!) {
+  mutation LogninUser($input: LoginUserInput!) {
     loginUser(input: $input) {
       msg
       success
@@ -43,12 +43,11 @@ export const QUERY_LOGIN = gql`
         firstname
         lastname
         email
-        shortedUrls
       }
       token
     }
   }
-`
+`;
 export const QUERY_RESEND_MAIL = gql`
   query ResendMail($email: String!) {
     resendMail(email: $email) {
@@ -56,4 +55,4 @@ export const QUERY_RESEND_MAIL = gql`
       success
     }
   }
-`
+`;

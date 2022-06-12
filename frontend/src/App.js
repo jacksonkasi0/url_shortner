@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import Signup from './Pages/Signup/Signup'
 import Verify from './Pages/Verify/Verify'
+import Redirect from './Pages/Redirect/Redirect.js'
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/verify/:token" element={<Verify />} />
+        <Route path="/:code" element={<Redirect />} />
       </Routes>
     </Router>
   )

@@ -1,28 +1,103 @@
-.sidebar{
-	display: flex;
-	flex-direction: column;
-	width: fit-content;
-	border-right: 2px solid #cacacaaf;
-	height: 100%;
-	 background: #fff; 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border-right: 2px solid #cacacaaf;
+  height: 100%;
+  background: #fff;
 }
 
-.logo{
-	display: flex;
-	align-items:center;
-	grid-gap: 1rem;
-	cursor: pointer;
-	margin-top: 1rem;
-	
+.logo {
+  display: flex;
+  align-items: center;
+  grid-gap: 1rem;
+  cursor: pointer;
+  padding: 0 1.5rem;
+  margin: 0.5rem 0;
 }
 
-.logo,h3{
-	padding: 0 1.5rem;
-	margin: .5rem 0;
+.sidebar .logo img {
+  width: 50px;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.sidebar  img{
-	width: 50px;
-	border-radius: 5px;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.iconContainer {
+  overflow-y: scroll;
+}
+
+
+.iconContainer::-webkit-scrollbar{
+	width: 10px ;
+  }
+  
+  .iconContainer::-webkit-scrollbar-track {
+	background-color: #f9f9f9;
+  }
+  
+  .iconContainer::-webkit-scrollbar-thumb {
+	background: transparent;
+	border-radius: 25px;
+  }
+  
+  .iconContainer:hover::-webkit-scrollbar-thumb {
+	background: #606060;
+  }
+
+.sidebarIcon {
+  width: auto;
+  display: flex;
+  justify-content: start;
+  grid-gap: 1.5rem;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+}
+
+.sidebarIcon:hover {
+  transition-duration: 0.3s;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 230, 230, 0.705) 0%,
+    rgba(68, 68, 68, 0.336) 100%
+  );
+}
+
+.sidebarIcon img {
+  width: 40px;
+  min-height: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.light {
+  position: absolute;
+  width: 10px;
+  height: 90%;
+  left: 0;
+  border-radius: 0 15px 15px 0;
+  background: rgb(18, 165, 247);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(18, 165, 247, 1) 0%,
+    rgba(9, 113, 237, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(18, 165, 247, 1) 0%,
+    rgba(9, 113, 237, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(18, 165, 247, 1) 0%,
+    rgba(9, 113, 237, 1) 100%
+  );
+}
+
+.sidebarIcon p {
+  white-space: nowrap;
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

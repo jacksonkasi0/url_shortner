@@ -17,23 +17,29 @@ export const QUERY_SHORT_URL = gql`
   }
 `;
 
-const QUERY_URL_DETAILS = gql`
-  query urlDetails {
-    shortUrl{
-      msg
-      success
-      urlDetails {
+export const QUERY_URL_DETAILS = gql`
+  query getUrls($userId: ID!) {
+    getUrls(userId: $userId) {
+      getAllUrls {
         _id
-        date
+        name
+        urlCode
         longUrl
         shortUrl
-        urlCode
-        name
+        webIcon
+        date
         clicks
-        createdAt
-        updatedAt
       }
     }
   }
 `;
 
+export const QUERY_REDIRECT_URL = gql`
+  mutation RedirectUrl($input: RedirectInput) {
+    redirectUrl(input: $input) {
+      msg
+      success
+      url
+    }
+  }
+`;

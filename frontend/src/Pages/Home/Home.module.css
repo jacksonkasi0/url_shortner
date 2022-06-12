@@ -1,11 +1,10 @@
-.container{
-	height: 100vh;
-	display: flex;
-	width: 100%;
-	background-color: #fff;
+.container {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  background-color: #f5edf8f8;
 }
 
-
-.main{
-	width: 100%;
+.main {
+  width: 100%;
 }

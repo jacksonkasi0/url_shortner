@@ -1,10 +1,6 @@
 const { gql } = require("apollo-server");
 
 const userType = gql`
-  type Url_Id {
-    _id: ID
-  }
-
   type User {
     _id: ID
     firstname: String!
@@ -12,7 +8,8 @@ const userType = gql`
     email: String!
     password: String!
     verified: Boolean
-    shortedUrls: [Url_Id]
+    shortedUrls: [ID]
+    savedUrls: [ID]
   }
 
   input CreateUserInput {

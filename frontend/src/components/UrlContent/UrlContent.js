@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./UrlContent.module.css";
 
-import { IconButton } from "@mui/material";
+import { IconButton, Link } from "@mui/material";
 import {
   UilCopy,
   UilQrcodeScan,
@@ -12,10 +12,6 @@ import {
 import Input from "../Input/Input";
 
 const UrlContent = ({ urlLink }) => {
-  const openLink = (url) => {
-    window.open(url, "_balnk", "noopener,noreferrer");
-  };
-
   const copy = (url) => {
     navigator.clipboard.writeText(url);
   };
@@ -23,10 +19,12 @@ const UrlContent = ({ urlLink }) => {
   return (
     <div className={style.container}>
       <div className={style.input}>
-        <h3>Short Url :</h3> <Input value={urlLink} />
-        <IconButton onClick={() => openLink(urlLink)}>
-          <UilExternalLinkAlt />
-        </IconButton>
+        <h3>Short Url :</h3> <Input value={urlLink} func={() => null} />
+        <Link href={urlLink} target="_blank">
+          <IconButton>
+            <UilExternalLinkAlt />
+          </IconButton>
+        </Link>
       </div>
       <div className={style.options}>
         <div>
@@ -36,13 +34,13 @@ const UrlContent = ({ urlLink }) => {
           </IconButton>
         </div>
         <div>
-          <p>Share</p>
+          <p>QR Code</p>
           <IconButton>
             <UilQrcodeScan />
           </IconButton>
         </div>
         <div>
-          <p>QR Code</p>
+          <p>Share</p>
           <IconButton>
             <UilTwitterAlt />
           </IconButton>

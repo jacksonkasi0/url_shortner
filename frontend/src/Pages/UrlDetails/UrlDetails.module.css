@@ -1,0 +1,57 @@
+.container {
+  padding: 1rem;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.heading > img {
+  width: 50px;
+  min-height: 50px;
+  border-radius: 5px;
+}
+
+.head {
+  background-color: #fff;
+  padding: 2rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.content {
+  /* margin: 3rem 0; */
+  display: grid;
+  overflow-wrap: break-word;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lognInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lognInput > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

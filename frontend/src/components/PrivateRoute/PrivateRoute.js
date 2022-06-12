@@ -38,6 +38,9 @@ const PrivateRoute = () => {
               dispatch(setUser(getUser.user));
               setIsUser(true);
             }
+            else{
+              navigate('/login')
+            }
           },
         });
       } catch (error) {
