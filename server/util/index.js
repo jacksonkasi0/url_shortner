@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
 const { AuthenticationError } = require("apollo-server");
 const User = require("../model/User");
 require("dotenv").config();
