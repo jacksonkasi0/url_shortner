@@ -9,7 +9,6 @@ const {
 } = require("../../util");
 
 const userResolver = {
-  
   Query: {
     resendMail: async (_, args) => {
       const user = await User.findOne({ email: args.email });
@@ -66,11 +65,13 @@ const userResolver = {
         password,
       }).save();
 
-      const { msg, success } = sendMail(
+      const { msg, success } = await sendMail(
         newUser._id,
         newUser.email,
         newUser.firstname
       );
+
+      console.log(msg, success);
 
       // return newUser
       if (success) {

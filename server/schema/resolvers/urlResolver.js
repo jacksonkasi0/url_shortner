@@ -27,7 +27,7 @@ const urlResolver = {
       try {
         const { longUrl } = await Url.findOneAndUpdate(
           { urlCode: code },
-          { $inc: { clicks: 1 } },
+          { $inc: { clicks: 1 }, $push:{browser:"chrome"} },
           { new: true }
         );
 
