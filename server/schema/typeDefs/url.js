@@ -3,6 +3,26 @@ const { gql } = require("apollo-server");
 const urlType = gql`
   scalar Date
 
+  type browser {
+    Chrome: Int
+    Opera: Int
+    Firefox: Int
+    IE: Int
+    Safari: Int
+  }
+
+  type device {
+    iPhone: Int
+    iPad: Int
+    iPod: Int
+    Blackberry: Int
+    WindowsMobile: Int
+    Android: Int
+    Macintosh: Int
+    Windows: Int
+    Linux: Int
+  }
+
   type Url {
     _id: ID
     name: String
@@ -12,8 +32,8 @@ const urlType = gql`
     webIcon: String
     date: Date!
     clicks: Int!
-    browser: [String]
-    os: [String]
+    browsers: browser
+    devices: device
     location: [String]
     creator: ID
     createdAt: Date
@@ -28,6 +48,8 @@ const urlType = gql`
 
   input RedirectInput {
     code: String!
+    device: String!
+    browser: String!
   }
 
   type Responce {

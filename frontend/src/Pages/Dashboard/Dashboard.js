@@ -51,7 +51,6 @@ const Dashboard = () => {
           autoHideDuration: 1500,
         });
         if (shortUrl.success) {
-          console.log(shortUrl);
           const isMatch = currentUrls.some(
             (url) => url.urlCode === urlDetails.urlCode
           );
@@ -95,7 +94,7 @@ const Dashboard = () => {
       {currentUrls.map((url) => (
         <AccordionBox
           key={url.urlCode}
-          Title1={<img src={url.webIcon} style={{ width: "45px"}} />}
+          Title1={<img src={url.webIcon} style={{ width: "45px" }} />}
           Title2={<h3>{url.name || "NaN"}</h3>}
           Content={<UrlContent urlLink={url.shortUrl} />}
         />

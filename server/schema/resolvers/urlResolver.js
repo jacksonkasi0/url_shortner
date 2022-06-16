@@ -23,14 +23,16 @@ const urlResolver = {
   },
 
   Mutation: {
-    redirectUrl: async (_, { input: { code } }) => {
+    redirectUrl: async (_, { input: { code, browser, device } }) => {
       try {
+        const brow = `browsers.${browser}`;
+        const dev = `devices.${device}`;
+
         const { longUrl } = await Url.findOneAndUpdate(
           { urlCode: code },
-          { $inc: { clicks: 1 }, $push:{browser:"chrome"} },
+          { $inc: { clicks: 1, [brow]: 1, [dev]: 1 } },
           { new: true }
         );
-
         return { msg: "Let's Go 🚀", success: false, url: longUrl };
       } catch (error) {
         console.log(error);

@@ -15,8 +15,7 @@ import App from "./App";
 
 
 const client = new ApolloClient({
-  uri: 'https://5000-jacksonkasi0-3x3box-jb30gbd2iu1.ws-us47.gitpod.io',
-  // process.env.REACT_APP_GRAPHQL_URL,
+  uri:process.env.REACT_APP_GRAPHQL_URL,
   cache: new InMemoryCache(),
 });
 

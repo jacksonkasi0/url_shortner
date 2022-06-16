@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { AuthenticationError } = require("apollo-server");
+const { CourierClient } = require("@trycourier/courier");
+
 const User = require("../model/User");
+
 require("dotenv").config();
-const sendGridMail = require("@sendgrid/mail");
-sendGridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const encryptPassword = async (password, saltRound = 10) => {
   try {
@@ -96,63 +97,33 @@ const sendMail = async (_id, email, firstname) => {
       expiresIn: "1d",
     });
 
-    // send verification email
-    let info = await sendGridMail.send({
-      from: process.env.EMAIL,
-      to: email,
-      subject: "User Verification E-mail from Grovemade",
-      // attachments: [
-      //   {
-      //     filename: "logo.png",
-      //     path: __dirname + "/logo.png",
-      //     cid: "logo@",
-      //   },
-      // ],
-      html: `
-            <div>
-            <div style=" text-align: center;" >
-            <img src="cid:logo@" alt="Grovemade"  
-            style=" width: 100%; height: 100px; margin-top: 10px;" />
-            <br />
-            <hr />
-            <br />
-            <p>
-            <span style=" color: rgb(99, 99, 99); font-weight: bold;">
-            ${firstname}</span>,we welcome to our platform :)
-             </p>
-             
-            <br />    
-            <a
-              style=" color:white !important;
-              padding:15px;
-              font-weight: 500;
-              background: rgb(0, 102, 255);
-              text-decoration: none;
-              border-radius: 10px;
-              box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
-              
-              href="https://3000-jacksonkasi0-3x3box-jb30gbd2iu1.ws-us47.gitpod.io/verify/${token}"
-              >Verify Email</a>
-      
-            <p style="margin-top: 20px; color: gray;">
-            This link expire in 1 day</p>
-      
-            <p>Thanks and Regards 😊</p>
-
-            <div style="margin-top: 50px;">&copy; ${year}</div>
-          </div>
-            </div>
-            `,
+    const courier = CourierClient({
+      authorizationToken: process.env.COURIER_TOKEN,
     });
+
+    // send verification email
+    let info = await courier.send({
+      message: {
+        to: {
+          email: email,
+        },
+        template: process.env.TEMPLATE_ID,
+        data: {
+          name: "jackson kasi",
+          link: `${process.env.BASE_URL}/verify/${token}`,
+        },
+      },
+    });
+
+    if (info) {
+      console.log(info);
+      console.log("mail send success fully 😃");
+    }
 
     return {
       msg: "Account created successfully. Please verify your email.",
       success: true,
     };
-
-    if (info) {
-      console.log("mail send success fully 😃");
-    }
   } catch (error) {
     console.error(error.message);
     return { msg: "Somthing went wrong!", success: false };

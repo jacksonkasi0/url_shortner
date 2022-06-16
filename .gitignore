@@ -1,3 +1,8 @@
 /backend
 
 .gitignore
+.env
+
+sendgrid.env
+
+/server/.env
