@@ -20,7 +20,7 @@ const UrlContent = ({ urlLink }) => {
     <div className={style.container}>
       <div className={style.input}>
         <h3>Short Url :</h3> <Input value={urlLink} func={() => null} />
-        <Link href={urlLink} target="_blank">
+        <Link href={`https://${urlLink}`} target="_blank" >
           <IconButton>
             <UilExternalLinkAlt />
           </IconButton>
