@@ -44,7 +44,7 @@ const UrlDetails = ({ urlCode }) => {
               <strong>Short Url :</strong>
             </p>
             <Input value={url.shortUrl} func={() => null} />
-            <Link href={url.shortUrl} target="_blank">
+            <Link href={`https://${url.shortUrl}`} target="_blank" >
               <IconButton>
                 <UilExternalLinkAlt />
               </IconButton>
